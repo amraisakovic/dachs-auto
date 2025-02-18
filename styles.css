@@ -37,7 +37,7 @@ header {
 .main-content {
     width: 100vw;
     height: 150vh; /* Adjusted to 150vh */
-    background-image: url('assets/image.png'); 
+    background-image: url('./dachs-auto/assets/image.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
