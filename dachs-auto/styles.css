@@ -1,0 +1,98 @@
+/* Reset Everything */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    height: 80px;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 200;
+}
+
+/* Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+/* MAIN CONTENT - Background Image */
+.main-content {
+    width: 100vw;
+    height: 150vh; /* Adjusted to 150vh */
+    background-image: url('assets/image.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    margin-top: 80px;
+}
+
+/* HOTSPOTS */
+.hotspot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* HOTSPOT INFO BLOCK */
+.hotspot-info {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 220px;
+    max-width: 80%;
+    text-align: center;
+    z-index: 200;
+
+    /* Animation */
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+    pointer-events: none;
+}
+
+/* MAP SECTION */
+.map-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 50px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
