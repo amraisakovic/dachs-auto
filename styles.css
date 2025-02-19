@@ -3,6 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+body{
+    background-color: black;
 }
 
 /* HEADER */
@@ -33,10 +39,30 @@ header {
     width: auto;
 }
 
+/* NAVIGATION MENU */
+nav ul {
+    list-style: none;  /* Remove bullet points */
+    display: flex;  /* Align items in a row */
+    justify-content: space-between;
+    align-items: space-between;
+    padding: 0;
+}
+
+/* Navbar Links */
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 /* MAIN CONTENT - Background Image */
 .main-content {
     width: 100vw;
-    height: 150vh; /* Adjusted to 150vh */
+    height: 150vh;
     background-image: url('./dachs-auto/assets/image.png'); 
     background-size: cover;
     background-position: center;
@@ -48,40 +74,77 @@ header {
 /* HOTSPOTS */
 .hotspot {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background: red;
     border-radius: 50%;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: all 0.4s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    color: white;
+    padding: 10px;
+    animation: pulsate 1.5s infinite ease-in-out;
 }
 
-/* HOTSPOT INFO BLOCK */
-.hotspot-info {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.85);
-    color: white;
+/* Expanding Effect */
+.hotspot:hover {
+    width: 220px;
+    height: auto;
     padding: 15px;
+    background: rgba(0, 0, 0, 0.9);
     border-radius: 8px;
     font-size: 14px;
-    width: 220px;
-    max-width: 80%;
     text-align: center;
-    z-index: 200;
-
-    /* Animation */
-    opacity: 0;
-    transform: scale(0.8);
-    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
-    pointer-events: none;
+    animation: none;
 }
 
-/* MAP SECTION */
-.map-container {
+/* PULSATING ANIMATION */
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+/* CONTACT & MAP SECTION */
+.contact-map-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 80%;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 50px auto;
+    gap: 20px;
+}
+
+/* Contact Info */
+.contact-info {
+    flex: 1;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.8);
     text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    color: black;
+}
+
+/* Map */
+.map-container {
+    flex: 1;
+    text-align: center;
+    color: white;
+
 }
 
 /* FOOTER */
@@ -92,7 +155,69 @@ footer {
     text-align: center;
     padding: 20px 10px;
     margin-top: 50px;
-    position: relative;
-    bottom: 0;
-    left: 0;
+    text-decoration: none;
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* Adjust Navbar for Smaller Screens */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    nav ul {
+        flex-direction: row;  /* Keep items in a row */
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 10px;
+    }
+}
+
+/* Adjust Hotspot Sizes & Positions for Mobile */
+@media (max-width: 1024px) {
+    .hotspot {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hotspot {
+        width: 15px;
+        height: 15px;
+    }
+
+    .hotspot:hover {
+        width: 180px;
+    }
+}
+
+/* Ensure Everything Fits on Small Devices */
+@media (max-width: 480px) {
+    .logo {
+        height: 35px;
+    }
+
+    .hotspot {
+        width: 12px;
+        height: 12px;
+    }
+
+    .hotspot:hover {
+        width: 160px;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
 }
