@@ -4,11 +4,64 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    
 }
 
-body{
+body {
     background-color: black;
+}
+
+/* FIXED CONTACT BAR */
+.contact-bar {
+    width: 100%;
+    height: 50px;
+    background: red;
+    color: white;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 300;
+}
+
+/* Contact Info (Phone + Address) */
+.contact-bar .contact-info {
+    flex: 1;
+}
+
+/* Sliding Text Container */
+.contact-bar .sliding-text {
+    flex: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Sliding Text */
+.contact-bar .sliding-text span {
+    display: inline-block;
+    position: absolute;
+    width: max-content;
+    white-space: nowrap;
+    animation: slide-in 10s linear infinite;
+}
+
+/* Smooth Right-to-Left Animation */
+@keyframes slide-in {
+    0% {
+        transform: translateX(320%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 /* HEADER */
@@ -22,7 +75,7 @@ header {
     align-items: center;
     padding: 10px 20px;
     position: fixed;
-    top: 0;
+    top: 50px; /* Moves down to fit under contact bar */
     left: 0;
     transition: opacity 0.5s ease-in-out;
     z-index: 200;
@@ -35,40 +88,48 @@ header {
 }
 
 .logo {
-    height: 50px;
+    height: 85px;
     width: auto;
 }
 
 /* NAVIGATION MENU */
 nav ul {
-    list-style: none;  /* Remove bullet points */
-    display: flex;  /* Align items in a row */
-    justify-content: space-between;
-    align-items: space-between;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0;
 }
 
-/* Navbar Links */
 nav ul li {
     margin: 0 15px;
 }
 
+/* Navbar Links */
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    font-size: 16px;
+    padding: 8px 12px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    color: red;
 }
 
 /* MAIN CONTENT - Background Image */
 .main-content {
     width: 100vw;
-    height: 150vh;
+    height: 100vh;
     background-image: url('./dachs-auto/assets/image.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    margin-top: 80px;
+    margin-top: 130px; /* Adjusted for fixed contact bar */
 }
 
 /* HOTSPOTS */
@@ -91,7 +152,7 @@ nav ul li a {
 
 /* Expanding Effect */
 .hotspot:hover {
-    width: 220px;
+    width: 290px;
     height: auto;
     padding: 15px;
     background: rgba(0, 0, 0, 0.9);
@@ -129,14 +190,19 @@ nav ul li a {
 }
 
 /* Contact Info */
-.contact-info {
+.about-info {
     flex: 1;
+    left: 0;
     padding: 40px;
-    background: rgba(0, 0, 0, 0.8);
+    background: white;
     text-align: center;
-    background-color: white;
     border-radius: 8px;
     color: black;
+}
+
+.about-info p { 
+    padding: auto;
+    text-align: left;
 }
 
 /* Map */
@@ -144,7 +210,6 @@ nav ul li a {
     flex: 1;
     text-align: center;
     color: white;
-
 }
 
 /* FOOTER */
@@ -155,7 +220,6 @@ footer {
     text-align: center;
     padding: 20px 10px;
     margin-top: 50px;
-    text-decoration: none;
 }
 
 /* === RESPONSIVE DESIGN === */
@@ -174,12 +238,17 @@ footer {
     }
 
     nav ul {
-        flex-direction: row;  /* Keep items in a row */
+        flex-direction: row;
         justify-content: center;
     }
 
     nav ul li {
         margin: 10px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+        padding: 6px 10px;
     }
 }
 
@@ -202,7 +271,6 @@ footer {
     }
 }
 
-/* Ensure Everything Fits on Small Devices */
 @media (max-width: 480px) {
     .logo {
         height: 35px;
@@ -220,4 +288,5 @@ footer {
     footer p {
         font-size: 12px;
     }
+    
 }
