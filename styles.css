@@ -92,6 +92,8 @@ header {
     width: auto;
 }
 
+
+
 /* NAVIGATION MENU */
 nav ul {
     list-style: none;
@@ -157,7 +159,7 @@ nav ul li a:hover {
     padding: 15px;
     background: rgba(0, 0, 0, 0.9);
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 10px;
     text-align: center;
     animation: none;
 }
@@ -222,6 +224,14 @@ footer {
     margin-top: 50px;
 }
 
+.testimonials {
+    width: 80%;
+    max-width: 1000px;
+    margin: 50px auto;
+    text-align: center;
+    color: white;
+}
+
 /* === RESPONSIVE DESIGN === */
 
 /* Adjust Navbar for Smaller Screens */
@@ -250,6 +260,10 @@ footer {
         font-size: 14px;
         padding: 6px 10px;
     }
+
+    .contact-bar {
+        font-size: 10px;
+    }
 }
 
 /* Adjust Hotspot Sizes & Positions for Mobile */
@@ -257,6 +271,7 @@ footer {
     .hotspot {
         width: 20px;
         height: 20px;
+        font-size: 8px;
     }
 }
 
@@ -264,6 +279,7 @@ footer {
     .hotspot {
         width: 15px;
         height: 15px;
+        font-size: 8px;
     }
 
     .hotspot:hover {
@@ -279,6 +295,7 @@ footer {
     .hotspot {
         width: 12px;
         height: 12px;
+        font-size: 8px;
     }
 
     .hotspot:hover {
@@ -286,7 +303,106 @@ footer {
     }
 
     footer p {
-        font-size: 12px;
+        font-size: 11px;
     }
     
+}
+
+/* HAMBURGER MENU (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 30px;
+    height: 4px;
+    background: black;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* MOBILE MENU (Hidden by Default) */
+nav {
+    display: flex;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px 12px;
+    transition: color 0.3s ease-in-out;
+}
+
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    /* Show Hamburger Menu */
+    .menu-toggle {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* Hide Default Navbar */
+    nav {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #d9d9d9;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 18px;
+        padding: 15px;
+        display: block;
+    }
+
+    /* SHOW NAV WHEN ACTIVE */
+    nav.active {
+        display: flex;
+    }
+
+    /* MOVE LOCATION UNDER "ABOUT US" */
+    .contact-map-container {
+        flex-direction: column;
+    }
+
+    .map-container {
+        order: 2; /* Moves Map Below About Us */
+        width: 100%;
+    }
+
+    .about-info {
+        order: 1;
+        width: 100%;
+        font-size: 11px;
+    }
 }

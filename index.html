@@ -11,29 +11,41 @@
 
     <!-- FIXED CONTACT BAR -->
 <div class="contact-bar">
-    <div class="contact-info">
-        📞 (718) 649-2626 | DACH'S AUTOMOTIVE INC
+    <div class="contact-info" style="text-decoration: none;">
+      <p> <a href="+17186492626" style="text-decoration: none;">📞 (718) 649-2626 </a> | DACH'S AUTOMOTIVE INC </p>
     </div>
     <div class="sliding-text">
         <span id="slidingMessage">Call us to schedule an inspection!</span>
     </div>
 </div>
 
-    <!-- HEADER (Navbar) -->
-    <header id="navbar">
-        <div class="logo-container">
-            <img src="./dachs-auto/assets/onlyicons.png" alt="Dach's Automotive Logo" class="logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- Header with Logo and Navigation -->
+<header id="navbar">
+    <div class="logo-container">
+        <img src="./dachs-auto/assets/onlyicons.png" alt="Dach's Automotive Logo" class="logo">
+    </div>
+    
+    <!-- HAMBURGER MENU BUTTON -->
+    <div class="menu-toggle" id="menuToggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">About</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+        </ul>
+    </nav>
+</header>
+
 
     <!-- MAIN CONTENT - Background Image + Hotspots -->
-    <div class="main-content">
+    <div class="main-content" id="services">
         <div class="hotspot" style="top: 60%; left: 20%;" data-service="Engine Diagnostics & Oil Change" data-description="Complete engine diagnostics and professional oil change services."></div>
         <div class="hotspot" style="top: 35%; left: 50%;" data-service="Tires, Brakes & Suspension" data-description="Smooth rides start with proper alignment, new tires, and reliable brakes—we've got you covered."></div>
         <div class="hotspot" style="top: 55%; left: 65%;" data-service="Parts Replacement & Repairs" data-description="From side mirrors to alternators, starters, belts, and more, we replace worn-out or damaged parts to keep your car running safely and efficiently."></div>
@@ -43,7 +55,11 @@
 
 &nbsp;
     <!-- TESTIMONIALS -->
-    <script defer async src='https://cdn.trustindex.io/loader.js?7a62f4642a18064f8986124ae2e'></script>
+    <div class="testimonials" id="reviews">
+        <h2>What Our Customers Say</h2>
+        <script defer async src='https://cdn.trustindex.io/loader.js?7a62f4642a18064f8986124ae2e'></script>
+        </div>
+   
 
     <!-- CONTACT & MAP SECTION -->
     <section class="contact-map-container">
@@ -85,8 +101,6 @@
 
     <script src="script.js"></script>
 
-
-
 <!-- Start of OpenWidget (www.openwidget.com) code -->
 <script>
     window.__ow = window.__ow || {};
@@ -97,7 +111,6 @@
   </script>
   <noscript>You need to <a href="https://www.openwidget.com/enable-javascript" rel="noopener nofollow">enable JavaScript</a> to use the communication tool powered by <a href="https://www.openwidget.com/" rel="noopener nofollow" target="_blank">OpenWidget</a></noscript>
   <!-- End of OpenWidget code -->
-  
   
 </body>
 </html>

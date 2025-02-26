@@ -25,8 +25,11 @@ window.addEventListener("scroll", () => {
     navbar.style.opacity = window.scrollY > 50 ? "0" : "1";
 });
 
-// HOTSPOT FUNCTIONALITY
+// HOTSPOT FUNCTIONALITY (Hover for Desktop, Tap for Mobile)
 hotspots.forEach(spot => {
+    let isExpanded = false;
+
+    // Desktop: Expand on hover
     spot.addEventListener("mouseenter", function () {
         this.innerHTML = `<strong>${this.dataset.service}</strong><br>${this.dataset.description}`;
         this.style.animation = "none"; // Stop pulsating
@@ -36,4 +39,33 @@ hotspots.forEach(spot => {
         this.innerHTML = "";
         this.style.animation = "pulsate 1.5s infinite ease-in-out"; // Restart pulsating
     });
+
+    // Mobile: Expand on tap
+    spot.addEventListener("click", function (event) {
+        event.stopPropagation(); // Prevents closing immediately
+        if (!isExpanded) {
+            this.innerHTML = `<strong>${this.dataset.service}</strong><br>${this.dataset.description}`;
+            this.style.animation = "none";
+            isExpanded = true;
+        } else {
+            this.innerHTML = "";
+            this.style.animation = "pulsate 1.5s infinite ease-in-out";
+            isExpanded = false;
+        }
+    });
+});
+
+// Close hotspots when tapping anywhere else on mobile
+document.addEventListener("click", function () {
+    hotspots.forEach(spot => {
+        spot.innerHTML = "";
+        spot.style.animation = "pulsate 1.5s infinite ease-in-out";
+    });
+});
+
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("nav-menu");
+
+menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
 });
