@@ -10,11 +10,18 @@ body {
     background-color: black;
 }
 
+
+
+a:visited {
+    color: white;
+    text-decoration: none !important;
+}
+
 /* FIXED CONTACT BAR */
 .contact-bar {
     width: 100%;
     height: 50px;
-    background: red;
+    background: #bd383b;
     color: white;
     display: flex;
     align-items: center;
@@ -28,12 +35,11 @@ body {
     z-index: 300;
 }
 
-/* Contact Info (Phone + Address) */
 .contact-bar .contact-info {
     flex: 1;
 }
 
-/* Sliding Text Container */
+/* Sliding Text */
 .contact-bar .sliding-text {
     flex: 2;
     white-space: nowrap;
@@ -45,7 +51,6 @@ body {
     align-items: center;
 }
 
-/* Sliding Text */
 .contact-bar .sliding-text span {
     display: inline-block;
     position: absolute;
@@ -54,34 +59,29 @@ body {
     animation: slide-in 10s linear infinite;
 }
 
-/* Smooth Right-to-Left Animation */
 @keyframes slide-in {
-    0% {
-        transform: translateX(320%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+    0% { transform: translateX(320%); }
+    100% { transform: translateX(-100%); }
 }
 
 /* HEADER */
 header {
     width: 100%;
-    height: 80px;
-    background: #d9d9d9;
+    height: 90px;
+    background: black;
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Keeps space between logo & menu */
     align-items: center;
     padding: 10px 20px;
     position: fixed;
-    top: 50px; /* Moves down to fit under contact bar */
+    top: 50px;
     left: 0;
     transition: opacity 0.5s ease-in-out;
     z-index: 200;
 }
 
-/* Logo */
+/* Logo - Stays on the Left */
 .logo-container {
     display: flex;
     align-items: center;
@@ -92,9 +92,12 @@ header {
     width: auto;
 }
 
-
-
 /* NAVIGATION MENU */
+nav {
+    display: flex;
+}
+
+/* NAVIGATION MENU LIST */
 nav ul {
     list-style: none;
     display: flex;
@@ -107,9 +110,8 @@ nav ul li {
     margin: 0 15px;
 }
 
-/* Navbar Links */
 nav ul li a {
-    color: black;
+    color: white;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
@@ -117,21 +119,39 @@ nav ul li a {
     transition: color 0.3s ease-in-out;
 }
 
-/* Hover Effect */
 nav ul li a:hover {
-    color: red;
+    color: #bd383b;
 }
 
-/* MAIN CONTENT - Background Image */
+/* HAMBURGER MENU - Now on the Right Side */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    right: 20px; /* Moves the hamburger menu to the right */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bar {
+    width: 25px;
+    height: 2px;
+    background: white;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* MAIN CONTENT */
 .main-content {
     width: 100vw;
     height: 100vh;
-    background-image: url('./dachs-auto/assets/image.png'); 
+    background-image: url('./dachs-auto/assets/image.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    margin-top: 130px; /* Adjusted for fixed contact bar */
+    margin-top: 130px;
 }
 
 /* HOTSPOTS */
@@ -139,7 +159,7 @@ nav ul li a:hover {
     position: absolute;
     width: 25px;
     height: 25px;
-    background: red;
+    background: #bd383b;
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.4s ease-in-out;
@@ -164,20 +184,10 @@ nav ul li a:hover {
     animation: none;
 }
 
-/* PULSATING ANIMATION */
 @keyframes pulsate {
-    0% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
 }
 
 /* CONTACT & MAP SECTION */
@@ -191,7 +201,6 @@ nav ul li a:hover {
     gap: 20px;
 }
 
-/* Contact Info */
 .about-info {
     flex: 1;
     left: 0;
@@ -202,7 +211,7 @@ nav ul li a:hover {
     color: black;
 }
 
-.about-info p { 
+.about-info p {
     padding: auto;
     text-align: left;
 }
@@ -233,18 +242,16 @@ footer {
 }
 
 /* === RESPONSIVE DESIGN === */
-
-/* Adjust Navbar for Smaller Screens */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
+        flex-direction: row;
         height: auto;
         padding: 15px;
         text-align: center;
     }
 
     .logo {
-        height: 40px;
+        height: 50px;
     }
 
     nav ul {
@@ -264,18 +271,7 @@ footer {
     .contact-bar {
         font-size: 10px;
     }
-}
 
-/* Adjust Hotspot Sizes & Positions for Mobile */
-@media (max-width: 1024px) {
-    .hotspot {
-        width: 20px;
-        height: 20px;
-        font-size: 8px;
-    }
-}
-
-@media (max-width: 768px) {
     .hotspot {
         width: 15px;
         height: 15px;
@@ -305,69 +301,28 @@ footer {
     footer p {
         font-size: 11px;
     }
-    
+
+    .logo{
+        height: 75px;
+    }
 }
 
-/* HAMBURGER MENU (Hidden on Desktop) */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.bar {
-    width: 30px;
-    height: 4px;
-    background: black;
-    margin: 5px 0;
-    transition: 0.4s;
-}
-
-/* MOBILE MENU (Hidden by Default) */
-nav {
-    display: flex;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 8px 12px;
-    transition: color 0.3s ease-in-out;
-}
-
-
-/* RESPONSIVE DESIGN */
+/* MOBILE MENU */
 @media (max-width: 768px) {
-    /* Show Hamburger Menu */
     .menu-toggle {
         display: flex;
-        justify-content: space-between;
     }
 
-    /* Hide Default Navbar */
     nav {
         display: none;
         position: absolute;
         top: 80px;
         left: 0;
         width: 100%;
-        background: #d9d9d9;
+        background: black;
         flex-direction: column;
         text-align: center;
+        color:white;
     }
 
     nav ul {
@@ -385,18 +340,16 @@ nav ul li a {
         display: block;
     }
 
-    /* SHOW NAV WHEN ACTIVE */
     nav.active {
         display: flex;
     }
 
-    /* MOVE LOCATION UNDER "ABOUT US" */
     .contact-map-container {
         flex-direction: column;
     }
 
     .map-container {
-        order: 2; /* Moves Map Below About Us */
+        order: 2;
         width: 100%;
     }
 
